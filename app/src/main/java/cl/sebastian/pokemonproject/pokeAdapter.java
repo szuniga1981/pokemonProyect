@@ -5,10 +5,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
 
 import java.util.List;
 
@@ -44,14 +48,21 @@ public class pokeAdapter extends RecyclerView.Adapter<pokeAdapter.PokeVH> {
 
     public class PokeVH extends RecyclerView.ViewHolder {
         private TextView TvName;
+        private ImageView imagenPoke;
+        private Context mContext;
+
+
 
         public PokeVH(@NonNull View itemView) {
             super(itemView);
             TvName= itemView.findViewById(R.id.TvName);
+            imagenPoke= itemView.findViewById(R.id.imagenPoke);
+            mContext=itemView.getContext();
         }
 
         public void bind(Pokemon pokemon) {
             TvName.setText(pokemon.getName());
+            Glide.with(mContext).load(pokemon.getImageSrc()).into(imagenPoke);
 
         }
     }
