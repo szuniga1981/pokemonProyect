@@ -50,6 +50,7 @@ public class pokeAdapter extends RecyclerView.Adapter<pokeAdapter.PokeVH> {
         private TextView TvName;
         private ImageView imagenPoke;
         private Context mContext;
+        private TextView mId;
 
 
 
@@ -58,10 +59,12 @@ public class pokeAdapter extends RecyclerView.Adapter<pokeAdapter.PokeVH> {
             TvName= itemView.findViewById(R.id.TvName);
             imagenPoke= itemView.findViewById(R.id.imagenPoke);
             mContext=itemView.getContext();
+            mId=itemView.findViewById(R.id.TVid);
         }
 
         public void bind(Pokemon pokemon) {
             TvName.setText(pokemon.getName());
+            mId.setText(pokemon.getId());
             Glide.with(mContext).load(pokemon.getImageSrc()).into(imagenPoke);
 
         }

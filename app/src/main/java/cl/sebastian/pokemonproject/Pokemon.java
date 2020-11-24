@@ -15,6 +15,8 @@ import java.util.List;
         private String name;
         private List<String> labels;
 
+
+
         public Pokemon(String id, String imageSrc, String name, List<String> labels) {
             this.id = id;
             this.imageSrc = imageSrc;
